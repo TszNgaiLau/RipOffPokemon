@@ -18,6 +18,9 @@ public class Charmander extends Pokemon{
         o.losedefense(1);
     }
 
-    public void
+    public void Scratch(Pokemon u, Pokemon o) {
+        int n =
+        o.losehealth();
+    }
 
 }

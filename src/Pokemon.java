@@ -5,11 +5,10 @@ import java.io.IOException;
 
 public class Pokemon {
     private int level;
+    private int totalHealth;
     private int health;
     private int attack;
     private int defense;
-    private int specialAttack;
-    private int specialDefense;
     private int speed;
 
     private int xCoord;
@@ -41,11 +40,9 @@ public class Pokemon {
 
     public void losedefense(int n) {
         defense -= n;
-        specialDefense -= n;
     }
     public void gaindefense(int n) {
         defense += n;
-        specialDefense += n;
     }
 
     public void losehealth(int n) {
@@ -60,6 +57,17 @@ public class Pokemon {
     }
     public void loseSpeed(int n) {
         speed -= n;
+    }
+
+    public void levelUp() {
+        totalHealth += 5;
+    }
+
+    public int damage(Pokemon u, Pokemon o, int power) {
+        int total = power;
+        total /= o.defense;
+        total += u.attack * level;
+        return total;
     }
 
 }
