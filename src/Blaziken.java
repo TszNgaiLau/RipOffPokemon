@@ -3,11 +3,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Charmander extends Pokemon{
+public class Blaziken extends Pokemon{
     private BufferedImage image;
 
-    public Charmander(int x, int y, int level) {
-        super(x, y, level, "src/Charmander.png");
+    public Blaziken(int x, int y, int level) {
+        super(x, y, level, "src/Blaziken.png");
     }
 
     public BufferedImage getImage() {
