@@ -16,9 +16,12 @@ public class Pokemon {
     private BufferedImage image;
     private String pathname;
 
-    public Pokemon(int x, int y,int level, String pathname) {
+    private String[] attackNames;
+
+    public Pokemon(int x, int y,int level, String pathname, String[] attackNames) {
         xCoord = x;
         yCoord = y;
+        this.attackNames = attackNames;
         try {
             image = ImageIO.read(new File(pathname));
         } catch (IOException e) {
@@ -68,6 +71,19 @@ public class Pokemon {
         total /= o.defense;
         total += u.attack * level;
         return total;
+    }
+
+    public String getAttack1() {
+        return attackNames[0];
+    }
+    public String getAttack2() {
+        return null;
+    }
+    public String getAttack3() {
+        return null;
+    }
+    public String getAttack4() {
+        return null;
     }
 
 }
