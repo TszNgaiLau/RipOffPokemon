@@ -77,13 +77,13 @@ public class Pokemon {
         return attackNames[0];
     }
     public String getAttack2() {
-        return null;
+        return attackNames[1];
     }
     public String getAttack3() {
-        return null;
+        return attackNames[2];
     }
     public String getAttack4() {
-        return null;
+        return attackNames[3];
     }
 
 }
