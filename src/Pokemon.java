@@ -66,11 +66,15 @@ public class Pokemon {
         totalHealth += 5;
     }
 
-    public int damage(Pokemon u, Pokemon o, int power) {
+    public int damage(Pokemon o, int power) {
         int total = power;
         total /= o.defense;
-        total += u.attack * level;
+        total += this.attack * level;
         return total;
+    }
+
+    public int statusDecrease(int power) {
+        return level + power;
     }
 
     public String getAttack1() {

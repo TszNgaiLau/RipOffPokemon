@@ -12,21 +12,16 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
     private Player player;
     private boolean[] pressedKeys;
     private ArrayList<Coin> coins;
-    private Timer timer;
-    private int time;
 
     public GraphicsPanel(String name) {
         try {
-            background = ImageIO.read(new File("src/background.png"));
+            background = ImageIO.read(new File("src/map.png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
         player = new Player("src/marioleft.png", "src/marioright.png", name);
         coins = new ArrayList<>();
         pressedKeys = new boolean[128];
-        time = 0;
-        timer = new Timer(1000, this); // this Timer will call the actionPerformed interface method every 1000ms = 1 second
-        timer.start();
         addKeyListener(this);
         addMouseListener(this);
         setFocusable(true); // this line of code + one below makes this panel active for keylistener events
@@ -55,7 +50,6 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
         // draw score
         g.setFont(new Font("Courier New", Font.BOLD, 24));
         g.drawString(player.getName() + "'s Score: " + player.getScore(), 20, 40);
-        g.drawString("Time: " + time, 20, 70);
 
         // player moves left (A)
         if (pressedKeys[65]) {
@@ -120,8 +114,6 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
 
     // ACTIONLISTENER INTERFACE METHODS: used for buttons AND timers!
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() instanceof Timer) {
-            time++;
-        }
+
     }
 }

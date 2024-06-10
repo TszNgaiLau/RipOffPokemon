@@ -20,29 +20,17 @@ public class Charmander extends Pokemon{
         o.losedefense(1);
     }
 
-    public void Scratch(Pokemon u, Pokemon o) {
-        o.losehealth(damage(u,o,40));
+    public void Scratch(Pokemon o) {
+        o.losehealth(damage(o,40));
     }
 
-    public void Ember(Pokemon u, Pokemon o) {
-        o.losehealth(damage(u,o,40));
+    public void Ember(Pokemon o) {
+        o.losehealth(damage(o,40));
     }
 
-    public void DragonBreath(Pokemon u, Pokemon o) {
-        o.losehealth(damage(u,o,60));
+    public void DragonBreath(Pokemon o) {
+        o.losehealth(damage(o,60));
     }
 
-    public String getAttack1() {
-        return "Growl";
-    }
-    public String getAttack2() {
-        return "Scratch";
-    }
-    public String getAttack3() {
-        return "Ember";
-    }
-    public String getAttack4() {
-        return "DragonBreath";
-    }
 
 }

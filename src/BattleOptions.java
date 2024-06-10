@@ -19,15 +19,19 @@ public class BattleOptions extends JPanel implements ActionListener {
     public BattleOptions(JFrame frame, Pokemon o) {
         enclosingFrame = frame;
         textField = new JTextField(10);
-        attack1 = new JButton("Submit");
-        attack2 = new JButton("Clear");
-        attack3 = new JButton();
-        attack4 = new JButton();
+        attack1 = new JButton(o.getAttack1());
+        attack2 = new JButton(o.getAttack2());
+        attack3 = new JButton(o.getAttack3());
+        attack4 = new JButton(o.getAttack4());
         add(textField);  // textField doesn't need a listener since nothing needs to happen when we type in text
-        add(submitButton);
-        add(clearButton);
-        submitButton.addActionListener(this);
-        clearButton.addActionListener(this);
+        add(attack1);
+        add(attack2);
+        add(attack3);
+        add(attack4);
+        attack1.addActionListener(this);
+        attack2.addActionListener(this);
+        attack3.addActionListener(this);
+        attack4.addActionListener(this);
     }
 
     @Override
@@ -36,17 +40,18 @@ public class BattleOptions extends JPanel implements ActionListener {
         g.setFont(new Font("Arial", Font.BOLD, 16));
         g.setColor(Color.RED);
         g.drawString("Please enter your name:", 50, 30);
-        g.drawImage(goomba, 200, 50, null);
         textField.setLocation(50, 50);
-        submitButton.setLocation(50, 100);
-        clearButton.setLocation(150, 100);
+        attack1.setLocation(50, 100);
+        attack2.setLocation(150, 100);
+        attack3.setLocation(50,200);
+        attack4.setLocation(50,200);
     }
 
     // ACTIONLISTENER INTERFACE METHODS
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() instanceof JButton) {
             JButton button = (JButton) e.getSource();
-            if (button == submitButton) {
+            if (button == attack1) {
                 String playerName = textField.getText();
                 MainFrame f = new MainFrame(playerName);
                 enclosingFrame.setVisible(false);
