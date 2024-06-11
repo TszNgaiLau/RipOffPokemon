@@ -18,15 +18,21 @@ public class Pokemon {
 
     private String[] attackNames;
 
-    public Pokemon(int x, int y,int level, String pathname, String[] attackNames) {
-        xCoord = x;
-        yCoord = y;
+    public Pokemon(int level, String pathname, String[] attackNames) {
+        this.level = level;
         this.attackNames = attackNames;
         try {
             image = ImageIO.read(new File(pathname));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public void setxCoord(int x) {
+        xCoord = x;
+    }
+    public void setyCoord(int y) {
+        yCoord = y;
     }
 
     public int getxCoord() {

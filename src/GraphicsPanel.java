@@ -9,18 +9,17 @@ import java.util.ArrayList;
 
 public class GraphicsPanel extends JPanel implements KeyListener, MouseListener, ActionListener {
     private BufferedImage background;
+
     private Player player;
     private boolean[] pressedKeys;
-    private ArrayList<Coin> coins;
+    private boolean inBattle;
 
     public GraphicsPanel(String name) {
         try {
-            background = ImageIO.read(new File("src/map.png"));
+            background = ImageIO.read(new File("src/BattleBackground.png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        player = new Player("src/marioleft.png", "src/marioright.png", name);
-        coins = new ArrayList<>();
         pressedKeys = new boolean[128];
         addKeyListener(this);
         addMouseListener(this);
@@ -31,48 +30,14 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);  // just do this
-        g.drawImage(background, 0, 0, null);  // the order that things get "painted" matter; we put background down first
-        g.drawImage(player.getPlayerImage(), player.getxCoord(), player.getyCoord(), null);
 
-        // this loop does two things:  it draws each Coin that gets placed with mouse clicks,
-        // and it also checks if the player has "intersected" (collided with) the Coin, and if so,
-        // the score goes up and the Coin is removed from the arraylist
-        for (int i = 0; i < coins.size(); i++) {
-            Coin coin = coins.get(i);
-            g.drawImage(coin.getImage(), coin.getxCoord(), coin.getyCoord(), null); // draw Coin
-            if (player.playerRect().intersects(coin.coinRect())) { // check for collision
-                player.collectCoin();
-                coins.remove(i);
-                i--;
-            }
-        }
+        g.drawImage(background, 0, 0, null);  // the order that things get "painted" matter; we put background down first
 
         // draw score
         g.setFont(new Font("Courier New", Font.BOLD, 24));
-        g.drawString(player.getName() + "'s Score: " + player.getScore(), 20, 40);
-
-        // player moves left (A)
-        if (pressedKeys[65]) {
-            player.faceLeft();
-            player.moveLeft();
-        }
-
-        // player moves right (D)
-        if (pressedKeys[68]) {
-            player.faceRight();
-            player.moveRight();
-        }
-
-        // player moves up (W)
-        if (pressedKeys[87]) {
-            player.moveUp();
-        }
-
-        // player moves down (S)
-        if (pressedKeys[83]) {
-            player.moveDown();
-        }
     }
+
+
 
     // ----- KeyListener interface methods -----
     public void keyTyped(KeyEvent e) { } // unimplemented
@@ -95,18 +60,7 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
 
     public void mousePressed(MouseEvent e) { } // unimplemented
 
-    public void mouseReleased(MouseEvent e) {
-        if (e.getButton() == MouseEvent.BUTTON1) {  // left mouse click
-            Point mouseClickLocation = e.getPoint();
-            Coin coin = new Coin(mouseClickLocation.x, mouseClickLocation.y);
-            coins.add(coin);
-        } else {
-            Point mouseClickLocation = e.getPoint();
-            if (player.playerRect().contains(mouseClickLocation)) {
-                player.turn();
-            }
-        }
-    }
+    public void mouseReleased(MouseEvent e) {}
 
     public void mouseEntered(MouseEvent e) { } // unimplemented
 

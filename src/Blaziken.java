@@ -6,8 +6,8 @@ import java.io.IOException;
 public class Blaziken extends Pokemon{
     private BufferedImage image;
 
-    public Blaziken(int x, int y, int level) {
-        super(x, y, level, "src/Blaziken.png",new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+    public Blaziken(int level) {
+        super(level, "src/Blaziken.png",new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
     public BufferedImage getImage() {

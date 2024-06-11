@@ -8,8 +8,8 @@ public class Charmander extends Pokemon{
 
     private String[] attackNames;
 
-    public Charmander(int x, int y, int level) {
-        super(x, y, level, "src/Charmander.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+    public Charmander(int level) {
+        super(level, "src/Charmander.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
     public BufferedImage getImage() {

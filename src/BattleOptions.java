@@ -52,8 +52,7 @@ public class BattleOptions extends JPanel implements ActionListener {
         if (e.getSource() instanceof JButton) {
             JButton button = (JButton) e.getSource();
             if (button == attack1) {
-                String playerName = textField.getText();
-                MainFrame f = new MainFrame(playerName);
+
                 enclosingFrame.setVisible(false);
             } else {
                 textField.setText("");

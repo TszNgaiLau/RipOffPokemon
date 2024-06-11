@@ -13,32 +13,33 @@ public class WelcomePanel extends JPanel implements ActionListener {
     private JButton submitButton;
     private JButton clearButton;
     private JFrame enclosingFrame;
-    private BufferedImage goomba;
+    private BufferedImage intro;
+
 
     public WelcomePanel(JFrame frame) {
-        enclosingFrame = frame;
-        try {
-            goomba = ImageIO.read(new File("src/goomba.png"));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
         textField = new JTextField(10);
         submitButton = new JButton("Submit");
         clearButton = new JButton("Clear");
+        enclosingFrame = frame;
         add(textField);  // textField doesn't need a listener since nothing needs to happen when we type in text
         add(submitButton);
         add(clearButton);
         submitButton.addActionListener(this);
         clearButton.addActionListener(this);
+        try {
+            intro = ImageIO.read(new File("src/Intro.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(intro, 0, 0, null);
         g.setFont(new Font("Arial", Font.BOLD, 16));
         g.setColor(Color.RED);
         g.drawString("Please enter your name:", 50, 30);
-        g.drawImage(goomba, 200, 50, null);
         textField.setLocation(50, 50);
         submitButton.setLocation(50, 100);
         clearButton.setLocation(150, 100);

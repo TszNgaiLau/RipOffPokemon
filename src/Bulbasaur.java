@@ -8,8 +8,8 @@ public class Bulbasaur extends Pokemon{
 
     private String[] attackNames;
 
-    public Bulbasaur(int x, int y, int level) {
-        super(x, y, level, "src/Bulbasaur.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+    public Bulbasaur(int level) {
+        super(level, "src/Bulbasaur.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
     public BufferedImage getImage() {
