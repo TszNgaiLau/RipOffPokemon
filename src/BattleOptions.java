@@ -15,6 +15,7 @@ public class BattleOptions extends JPanel implements ActionListener {
     private JButton attack3;
     private JButton attack4;
     private JFrame enclosingFrame;
+    private Player poke;
 
     public BattleOptions(JFrame frame, Pokemon o) {
         enclosingFrame = frame;
@@ -37,10 +38,6 @@ public class BattleOptions extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setFont(new Font("Arial", Font.BOLD, 16));
-        g.setColor(Color.RED);
-        g.drawString("Please enter your name:", 50, 30);
-        textField.setLocation(50, 50);
         attack1.setLocation(50, 100);
         attack2.setLocation(150, 100);
         attack3.setLocation(50,200);

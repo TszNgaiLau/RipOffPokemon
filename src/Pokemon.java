@@ -14,18 +14,17 @@ public class Pokemon {
     private int xCoord;
     private int yCoord;
     private BufferedImage image;
-    private String pathname;
 
     private String[] attackNames;
 
-    public Pokemon(int level, String pathname, String[] attackNames) {
+    public Pokemon(int level, int health, int attack, int defense, int speed,String pathname, String[] attackNames) {
         this.level = level;
         this.attackNames = attackNames;
-        try {
-            image = ImageIO.read(new File(pathname));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            image = ImageIO.read(new File(pathname));
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     public void setxCoord(int x) {
@@ -67,6 +66,12 @@ public class Pokemon {
     public void loseSpeed(int n) {
         speed -= n;
     }
+    public void gainAttack(int n){
+        attack += n;
+    }
+    public void loseAttack(int n) {
+        attack -= n;
+    }
 
     public void levelUp() {
         totalHealth += 5;
@@ -80,6 +85,10 @@ public class Pokemon {
     }
 
     public int statusDecrease(int power) {
+        return level + power;
+    }
+
+    public int statusIncrease(int power) {
         return level + power;
     }
 

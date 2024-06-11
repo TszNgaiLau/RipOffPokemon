@@ -26,11 +26,11 @@ public class WelcomePanel extends JPanel implements ActionListener {
         add(clearButton);
         submitButton.addActionListener(this);
         clearButton.addActionListener(this);
-        try {
-            intro = ImageIO.read(new File("src/Intro.png"));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+//        try {
+//            intro = ImageIO.read(new File("src/Intro.png"));
+//        } catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
 
     @Override

@@ -9,7 +9,7 @@ public class Bulbasaur extends Pokemon{
     private String[] attackNames;
 
     public Bulbasaur(int level) {
-        super(level, "src/Bulbasaur.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+        super(level,1000,1000,1000,1000, "src/Bulbasaur.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
     public BufferedImage getImage() {
@@ -20,16 +20,16 @@ public class Bulbasaur extends Pokemon{
         o.losedefense(statusDecrease(1));
     }
 
-    public void Scratch(Pokemon o) {
+    public void Tackle(Pokemon o) {
         o.losehealth(damage(o,40));
     }
 
-    public void Ember(Pokemon u, Pokemon o) {
-        o.losehealth(damage(o,40));
+    public void VineWhip(Pokemon o) {
+        o.losehealth(damage(o,45));
     }
 
-    public void DragonBreath(Pokemon u, Pokemon o) {
-        o.losehealth(damage(o,60));
+    public void Growth() {
+        gainAttack(statusIncrease(1));
     }
 
 
