@@ -10,9 +10,6 @@ public class Charizard extends Pokemon{
         super(20, 80,120,70,80,"src/Blaziken.png",new String[] {"Double Kick", "Growl", "QuickAttack", "Scratch"});
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
 
     public void DoubleKick(Pokemon o) {
         o.losehealth(damage(o,30));

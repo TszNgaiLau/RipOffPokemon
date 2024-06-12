@@ -17,8 +17,13 @@ public class Player {
     public void setPokemon(Pokemon o) {
         owned = o;
         owned.setxCoord(50);
-        owned.setyCoord(500);
+        owned.setyCoord(300);
     }
+
+    public Pokemon getPokemon() {
+        return owned;
+    }
+
 
     public int getScore() {
         return score;

@@ -9,26 +9,23 @@ public class Bulbasaur extends Pokemon{
     private String[] attackNames;
 
     public Bulbasaur(int level) {
-        super(level,1000,1000,1000,1000, "src/Bulbasaur.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+        super(level,10000,1000,1000,1000, "src/images/Bulbasaur.png", new String[] {"Growl", "Tackle", "Vine Whip", "Growth"});
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
 
-    public void Growl(Pokemon o) {
+    public void a1(Pokemon o) {
         o.losedefense(statusDecrease(1));
     }
 
-    public void Tackle(Pokemon o) {
+    public void a2(Pokemon o) {
         o.losehealth(damage(o,40));
     }
 
-    public void VineWhip(Pokemon o) {
+    public void a3(Pokemon o) {
         o.losehealth(damage(o,45));
     }
 
-    public void Growth() {
+    public void a4() {
         gainAttack(statusIncrease(1));
     }
 

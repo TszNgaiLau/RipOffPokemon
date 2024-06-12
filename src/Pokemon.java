@@ -5,7 +5,7 @@ import java.io.IOException;
 
 public class Pokemon {
     private int level;
-    private int totalHealth;
+
     private int health;
     private int attack;
     private int defense;
@@ -20,6 +20,10 @@ public class Pokemon {
     public Pokemon(int level, int health, int attack, int defense, int speed,String pathname, String[] attackNames) {
         this.level = level;
         this.attackNames = attackNames;
+        this.health = health;
+        this.attack = attack;
+        this.defense = defense;
+        this.speed = speed;
         try {
             image = ImageIO.read(new File(pathname));
         } catch (IOException e) {
@@ -56,6 +60,9 @@ public class Pokemon {
     public void losehealth(int n) {
         health -= n;
     }
+    public int getHealth() {
+        return health;
+    }
 
     public void gainhealth(int n) {
         health += n;
@@ -73,14 +80,11 @@ public class Pokemon {
         attack -= n;
     }
 
-    public void levelUp() {
-        totalHealth += 5;
-    }
 
     public int damage(Pokemon o, int power) {
         int total = power;
-        total /= o.defense;
-        total += this.attack * level;
+        total -= o.defense;
+        total += this.attack;
         return total;
     }
 
@@ -104,5 +108,6 @@ public class Pokemon {
     public String getAttack4() {
         return attackNames[3];
     }
+
 
 }

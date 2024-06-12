@@ -12,23 +12,20 @@ public class Charmander extends Pokemon{
         super(level, 39,52,43,65,"src/images/Charmander.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
-    public BufferedImage getImage() {
-        return image;
-    }
 
-    public void Growl(Pokemon o) {
+    public void a1(Pokemon o) {
         o.losedefense(1);
     }
 
-    public void Scratch(Pokemon o) {
+    public void a2(Pokemon o) {
         o.losehealth(damage(o,40));
     }
 
-    public void Ember(Pokemon o) {
+    public void a3(Pokemon o) {
         o.losehealth(damage(o,40));
     }
 
-    public void DragonBreath(Pokemon o) {
+    public void a4(Pokemon o) {
         o.losehealth(damage(o,60));
     }
 
