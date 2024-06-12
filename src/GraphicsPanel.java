@@ -5,22 +5,28 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class GraphicsPanel extends JPanel implements KeyListener, MouseListener, ActionListener {
     private BufferedImage background;
 
     private Player player;
-    private boolean[] pressedKeys;
+
     private boolean inBattle;
 
-    public GraphicsPanel(String name) {
+    public GraphicsPanel(String name, String poke) {
         try {
-            background = ImageIO.read(new File("src/BattleBackground.png"));
+            background = ImageIO.read(new File("src/images/BattleBackground.png"));
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-        pressedKeys = new boolean[128];
+        player = new Player(name);
+        if (poke.equals("Charmander")) {
+            player.setPokemon(new Charmander(1));
+        } else if (poke.equals("Bulbasaur")) {
+            player.setPokemon(new Bulbasaur(1));
+        } else if (poke.equals("Squirtle")) {
+            player.setPokemon(new Squirtle(1));
+        }
         addKeyListener(this);
         addMouseListener(this);
         setFocusable(true); // this line of code + one below makes this panel active for keylistener events

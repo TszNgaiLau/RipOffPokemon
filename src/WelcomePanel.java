@@ -10,6 +10,7 @@ import java.io.IOException;
 public class WelcomePanel extends JPanel implements ActionListener {
 
     private JTextField textField;
+    private JTextField choose;
     private JButton submitButton;
     private JButton clearButton;
     private JFrame enclosingFrame;
@@ -18,19 +19,21 @@ public class WelcomePanel extends JPanel implements ActionListener {
 
     public WelcomePanel(JFrame frame) {
         textField = new JTextField(10);
+        choose = new JTextField(10);
         submitButton = new JButton("Submit");
         clearButton = new JButton("Clear");
         enclosingFrame = frame;
+        add(choose);
         add(textField);  // textField doesn't need a listener since nothing needs to happen when we type in text
         add(submitButton);
         add(clearButton);
         submitButton.addActionListener(this);
         clearButton.addActionListener(this);
-//        try {
-//            intro = ImageIO.read(new File("src/Intro.png"));
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
+        try {
+            intro = ImageIO.read(new File("src/images/Intro.png"));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Override
@@ -40,7 +43,10 @@ public class WelcomePanel extends JPanel implements ActionListener {
         g.setFont(new Font("Arial", Font.BOLD, 16));
         g.setColor(Color.RED);
         g.drawString("Please enter your name:", 50, 30);
-        textField.setLocation(50, 50);
+        g.drawString("Welcome to the world of pokemon.",50,320);
+        g.drawString("Choose: Charmander, Bulbasaur, Squirtle", 50, 70);
+        textField.setLocation(50, 35);
+        choose.setLocation(50,75);
         submitButton.setLocation(50, 100);
         clearButton.setLocation(150, 100);
     }
@@ -51,7 +57,8 @@ public class WelcomePanel extends JPanel implements ActionListener {
             JButton button = (JButton) e.getSource();
             if (button == submitButton) {
                 String playerName = textField.getText();
-                MainFrame f = new MainFrame(playerName);
+                String poke = choose.getText();
+                MainFrame f = new MainFrame(playerName, poke);
                 enclosingFrame.setVisible(false);
             } else {
                 textField.setText("");

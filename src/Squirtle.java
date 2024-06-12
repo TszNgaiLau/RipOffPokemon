@@ -3,13 +3,13 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class Charmander extends Pokemon{
+public class Squirtle extends Pokemon{
     private BufferedImage image;
 
     private String[] attackNames;
 
-    public Charmander(int level) {
-        super(level, 39,52,43,65,"src/images/Charmander.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
+    public Squirtle(int level) {
+        super(level, 39,52,43,65,"src/images/Squirtle.png", new String[] {"Growl", "Scratch", "Ember", "DragonBreath"});
     }
 
     public BufferedImage getImage() {

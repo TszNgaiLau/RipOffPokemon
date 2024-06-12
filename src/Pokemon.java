@@ -20,11 +20,11 @@ public class Pokemon {
     public Pokemon(int level, int health, int attack, int defense, int speed,String pathname, String[] attackNames) {
         this.level = level;
         this.attackNames = attackNames;
-//        try {
-//            image = ImageIO.read(new File(pathname));
-//        } catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
+        try {
+            image = ImageIO.read(new File(pathname));
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void setxCoord(int x) {

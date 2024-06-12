@@ -17,14 +17,12 @@ public class BattleOptions extends JPanel implements ActionListener {
     private JFrame enclosingFrame;
     private Player poke;
 
-    public BattleOptions(JFrame frame, Pokemon o) {
-        enclosingFrame = frame;
+    public BattleOptions(Pokemon o, Pokemon e) {
         textField = new JTextField(10);
         attack1 = new JButton(o.getAttack1());
         attack2 = new JButton(o.getAttack2());
         attack3 = new JButton(o.getAttack3());
         attack4 = new JButton(o.getAttack4());
-        add(textField);  // textField doesn't need a listener since nothing needs to happen when we type in text
         add(attack1);
         add(attack2);
         add(attack3);
@@ -41,7 +39,7 @@ public class BattleOptions extends JPanel implements ActionListener {
         attack1.setLocation(50, 100);
         attack2.setLocation(150, 100);
         attack3.setLocation(50,200);
-        attack4.setLocation(50,200);
+        attack4.setLocation(150,200);
     }
 
     // ACTIONLISTENER INTERFACE METHODS
@@ -50,9 +48,8 @@ public class BattleOptions extends JPanel implements ActionListener {
             JButton button = (JButton) e.getSource();
             if (button == attack1) {
 
-                enclosingFrame.setVisible(false);
+
             } else {
-                textField.setText("");
             }
         }
     }
