@@ -67,13 +67,25 @@ public class GraphicsPanel extends JPanel implements KeyListener, MouseListener,
         attack3.setLocation(50,200);
         attack4.setLocation(150,200);
 
-        g.setFont(new Font("Arial", Font.BOLD, 50));
+        g.setFont(new Font("Arial", Font.BOLD, 30));
         g.setColor(Color.RED);
+        g.drawString("Blaziken HP: " + blaziken.getHealth(), 400,50);
+        g.drawString("Your HP: " + player.getPokemon().getHealth(),100, 280);
+
+        g.setFont(new Font("Arial", Font.BOLD, 50));
 
         if(player.getPokemon().getHealth() < 0) {
-            g.drawString("You Lost!", 350,350);
+            if (player.getPokemon().getHealth() < blaziken.getHealth()) {
+                g.drawString("You Lost!", 350,350);
+            } else {
+                g.drawString("You Won!", 350,350);
+            }
         } else if (blaziken.getHealth() < 0) {
-            g.drawString("You Won!",350,350);
+            if (player.getPokemon().getHealth() > blaziken.getHealth()) {
+                g.drawString("You Won!", 350,350);
+            } else {
+                g.drawString("You Lost!", 350,350);
+            }
         }
     }
 
